@@ -18,6 +18,8 @@ int _printf(const char *format, ...)
 	interface ids[] = {
 		{'c', _print_char},
 		{'s', _print_string},
+		{'i', _print_int},
+		{'d', _print_int},
 		{'%', _print_mod},
 		{'\0', NULL}
 	};

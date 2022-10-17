@@ -54,3 +54,39 @@ int _print_string(va_list ls)
 
 	return (count);
 }
+
+
+/**
+ * _print_int - prints a decimal integer
+ * @ls: list of arguments, va_list
+ *
+ * Return: the number of printed chars, int
+ */
+int _print_int(va_list ls)
+{
+	int a, expo = 1, len = 0;
+	unsigned int n;
+	char pr;
+
+	a = va_arg(ls, int);
+
+	if (a < 0)
+	{
+		pr = '-';
+		len = len + write(1, &pr, 1);
+		n = a * -1;
+	}
+	else
+		n = a;
+	while (n / expo > 9)
+		expo *= 10;
+
+	while (expo != 0)
+	{
+		pr = n / expo + '0';
+		len = len + write(1, &pr, 1);
+		n = n % expo;
+		expo = expo / 10;
+	}
+	return (len);
+}

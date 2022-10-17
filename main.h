@@ -21,4 +21,5 @@ int _printf(const char *format, ...);
 int _print_char(va_list ls);
 int _print_mod(va_list ls);
 int _print_string(va_list ls);
+int _print_int(va_list ls);
 #endif /* main.h */
